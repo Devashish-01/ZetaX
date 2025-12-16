@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route, ScrollRestoration } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // Layout Components
 import Navbar from './components/Navbar';
@@ -53,6 +54,7 @@ const App: React.FC = () => {
           </Routes>
         </main>
         <Footer />
+        <SpeedInsights />
       </div>
     </Router>
   );
