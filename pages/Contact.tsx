@@ -53,7 +53,14 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900">Visit Us</h3>
-                  <p className="text-gray-600">123 Innovation Blvd, Suite 400<br />San Francisco, CA 94103</p>
+                  <a 
+                    href="https://www.google.com/maps/search/?api=1&query=215-216+Sapna+Sangeeta+Rd+Agarwal+Nagar+Navlakha+Indore+Madhya+Pradesh+452001"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-brand-900 transition-colors"
+                  >
+                    215-216, Sapna Sangeeta Rd,<br />Agarwal Nagar, Navlakha,<br />Indore, Madhya Pradesh 452001
+                  </a>
                 </div>
               </div>
 
@@ -63,8 +70,9 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900">Email Us</h3>
-                  <p className="text-gray-600">hello@zetax.com</p>
-                  <p className="text-gray-600">support@zetax.com</p>
+                  <a href="mailto:zetax.buisness@gmail.com" className="text-gray-600 hover:text-brand-900 transition-colors block">
+                    zetax.buisness@gmail.com
+                  </a>
                 </div>
               </div>
 
@@ -73,9 +81,16 @@ const Contact: React.FC = () => {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">Call Us</h3>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
-                  <p className="text-gray-500 text-sm">Mon-Fri, 9am - 6pm PST</p>
+                  <h3 className="font-bold text-gray-900">Call / WhatsApp</h3>
+                  <a 
+                    href="https://wa.me/919589781311"
+                    target="_blank"
+                    rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-brand-900 transition-colors block"
+                  >
+                    +91 95897 81311
+                  </a>
+                  <p className="text-gray-500 text-sm">Mon-Sat, 10am - 7pm IST</p>
                 </div>
               </div>
             </div>

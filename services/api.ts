@@ -4,6 +4,10 @@ import { Lead, ContactFormData, ApiResponse } from '../types';
 // In a real app, this would be your backend URL
 const BASE_URL = 'https://api.zetax.com/v1';
 
+// CHANGE THIS: Replace with your actual Formspree form ID or Backend URL
+// Example: 'https://formspree.io/f/xmqznqrz'
+const CONTACT_FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID_HERE'; 
+
 // Mocking the axios instance for this demo
 const api = axios.create({
   baseURL: BASE_URL,
@@ -40,10 +44,40 @@ export const LeadService = {
 
 export const ContactService = {
   submitForm: async (data: ContactFormData): Promise<ApiResponse<null>> => {
-    // API Placeholder: POST /api/contact
     console.log('[API] Submitting contact form:', data);
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    return { success: true, message: 'Message sent successfully!' };
+
+    // CHECK: If the user hasn't replaced the placeholder ID yet, run in Mock mode.
+    if (CONTACT_FORM_ENDPOINT.includes('YOUR_FORM_ID_HERE')) {
+      console.warn('⚠️ No Backend Endpoint Configured. Running in simulation mode.');
+      console.warn('To receive emails, sign up for Formspree.io and paste your URL in services/api.ts');
+      
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      return { success: true, message: 'Simulation: Message sent successfully!' };
+    }
+
+    // REAL FUNCTIONALITY: Send data to the configured endpoint (e.g., Formspree)
+    try {
+      const response = await fetch(CONTACT_FORM_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        return { success: true, message: 'Message sent successfully!' };
+      } else {
+        const errorData = await response.json();
+        console.error('Form submission failed:', errorData);
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   }
 };
 

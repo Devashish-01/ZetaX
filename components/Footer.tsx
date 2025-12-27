@@ -51,15 +51,31 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-brand-accent mt-0.5" />
-                <span>123 Innovation Blvd, Suite 400<br/>San Francisco, CA 94103</span>
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=215-216+Sapna+Sangeeta+Rd+Agarwal+Nagar+Navlakha+Indore+Madhya+Pradesh+452001"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-accent transition-colors leading-snug"
+                >
+                  215-216, Sapna Sangeeta Rd,<br/>Agarwal Nagar, Indore, MP 452001
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-brand-accent" />
-                <span>+1 (555) 123-4567</span>
+                <a 
+                  href="https://wa.me/919589781311"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-accent transition-colors"
+                >
+                  +91 95897 81311
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-brand-accent" />
-                <span>hello@zetax.com</span>
+                <a href="mailto:zetax.buisness@gmail.com" className="hover:text-brand-accent transition-colors">
+                  zetax.buisness@gmail.com
+                </a>
               </li>
             </ul>
           </div>
